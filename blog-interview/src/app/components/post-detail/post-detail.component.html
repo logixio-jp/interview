@@ -1,0 +1,8 @@
+<h1>{{ post?.title }}</h1>
+<div>{{ post?.content }}</div>
+
+<div>
+  <mat-card *ngFor="let comment of post?.comments">
+    <mat-card-content>{{ comment.content }}</mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,16 @@
+.header {
+  height: 75px;
+  padding: 15px;
+  background-color: cadetblue;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  display: inline;
+}
+
+.create-button {
+  align-self: end;
+  vertical-align: center;
+}
