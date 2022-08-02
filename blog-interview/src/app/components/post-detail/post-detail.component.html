@@ -1,8 +1,24 @@
 <h1>{{ post?.title }}</h1>
 <div>{{ post?.content }}</div>
 
-<div>
+<div class="comments">
+  <h2>Comments</h2>
+  <div *ngIf="post?.comments?.length == 0">No comment yet.</div>
   <mat-card *ngFor="let comment of post?.comments">
     <mat-card-content>{{ comment.content }}</mat-card-content>
   </mat-card>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Leave a comment</mat-label>
+    <textarea
+      matInput
+      placeholder="Enter the comment here"
+      [(ngModel)]="currentComment"
+    ></textarea>
+  </mat-form-field>
+  <div class="buttonBar">
+    <button mat-flat-button color="primary" (click)="addComment()">
+      Post comment
+    </button>
+  </div>
 </div>

@@ -1,1 +1,48 @@
-<p>post-form works!</p>
+<mat-card class="card-content">
+  <ng-template [ngIf]="post.id == null" [ngIfElse]="elseBlock">
+    <h1>Post creation</h1>
+  </ng-template>
+  <ng-template #elseBlock>
+    <h1>Edit post # {{ post.id }}</h1>
+  </ng-template>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input
+      id="title"
+      type="text"
+      matInput
+      [formControl]="postFormControl"
+      [errorStateMatcher]="matcher"
+      [(ngModel)]="post.title"
+    />
+    <mat-error *ngIf="postFormControl.hasError('required')">
+      Title is required
+    </mat-error>
+    <mat-error *ngIf="postFormControl.hasError('minlength')">
+      Title must be at least 5 characters.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <textarea
+      id="content"
+      matInput
+      placeholder="Enter the description here"
+      [(ngModel)]="post.content"
+    ></textarea>
+  </mat-form-field>
+
+  <div class="buttonBar">
+    <button
+      id="submitButton"
+      mat-flat-button
+      color="primary"
+      (click)="addOrEditPost()"
+    >
+      {{ post.id == null ? "Add" : "Edit" }}
+    </button>
+    <button mat-stroked-button color="accent" (click)="cancel()">Cancel</button>
+  </div>
+</mat-card>

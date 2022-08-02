@@ -5,8 +5,9 @@ import { PostFormComponent } from './components/post-form/post-form.component';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 
 const routes: Routes = [
-  { path: 'posts/:id', component: PostDetailComponent },
   { path: 'posts/new', component: PostFormComponent },
+  { path: 'posts/edit/:id', component: PostFormComponent },
+  { path: 'posts/:id', component: PostDetailComponent },
   {
     path: 'posts',
     component: PostsListComponent,

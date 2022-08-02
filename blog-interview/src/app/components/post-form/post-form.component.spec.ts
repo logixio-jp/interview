@@ -4,6 +4,7 @@ import { PostFormComponent } from './post-form.component';
 import { BlogService } from '../../services/blog-service';
 import { of } from 'rxjs';
 import { Post } from '../../models/post';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PostFormComponent', () => {
   let component: PostFormComponent;
@@ -13,6 +14,7 @@ describe('PostFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       declarations: [PostFormComponent],
       providers: [BlogService],
     }).compileComponents();
@@ -40,6 +42,7 @@ describe('PostFormComponent', () => {
     fixture.nativeElement
       .querySelector('#title')
       .dispatchEvent(new Event('input'));
+    fixture.detectChanges();
 
     fixture.nativeElement.querySelector('#content').value = mockPost.content;
     fixture.nativeElement

@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PostDetailComponent } from './post-detail.component';
 import { BlogService } from '../../services/blog-service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PostDetailComponent', () => {
   let component: PostDetailComponent;
@@ -9,6 +10,7 @@ describe('PostDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       declarations: [PostDetailComponent],
       providers: [BlogService],
     }).compileComponents();

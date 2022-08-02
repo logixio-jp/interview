@@ -12,6 +12,13 @@ import { PostDetailComponent } from './components/post-detail/post-detail.compon
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { MatButtonModule } from '@angular/material/button';
+import { PostCardComponent } from './components/post-card/post-card.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DeleteDialog } from './components/tools/dialog-delete/dialog-delete-post';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +27,9 @@ import { MatButtonModule } from '@angular/material/button';
     PostFormComponent,
     PostDetailComponent,
     HeaderComponent,
+    FooterComponent,
+    PostCardComponent,
+    DeleteDialog,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +38,11 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     RouterModule,
     MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
   ],
   providers: [BlogService],
   bootstrap: [AppComponent],

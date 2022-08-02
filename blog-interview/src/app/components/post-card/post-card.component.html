@@ -1,0 +1,22 @@
+<mat-card class="post-card" *ngIf="post">
+  <div class="content" [routerLink]="['/posts/' + post.id]">
+    <mat-card-title>{{ post.title }}</mat-card-title>
+    <mat-card-content>{{ post.content }}</mat-card-content>
+  </div>
+  <div class="buttonBar">
+    <button
+      mat-stroked-button
+      color="accent"
+      [routerLink]="['/posts/edit/' + post.id]"
+    >
+      Edit
+    </button>
+    <button
+      mat-stroked-button
+      color="accent"
+      (click)="openDeletePostDialog(post)"
+    >
+      Delete
+    </button>
+  </div>
+</mat-card>

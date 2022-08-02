@@ -16,6 +16,55 @@ export class BlogService {
       id: 0,
       comments: [],
     },
+    {
+      title: 'My second post',
+      content:
+        'This is the second post. Testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing',
+      id: 1,
+      comments: [],
+    },
+    {
+      title: 'My third post',
+      content:
+        'This is the third post. Testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing',
+      id: 2,
+      comments: [],
+    },
+    {
+      title: 'My 4th post',
+      content:
+        'This is the x post. Testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing',
+      id: 3,
+      comments: [],
+    },
+    {
+      title: 'My 5th post',
+      content:
+        'This is the x post. Testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing',
+      id: 4,
+      comments: [],
+    },
+    {
+      title: 'My 6th post',
+      content:
+        'This is the x post. Testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing',
+      id: 5,
+      comments: [],
+    },
+    {
+      title: 'My 7th post',
+      content:
+        'This is the x post. Testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing',
+      id: 6,
+      comments: [],
+    },
+    {
+      title: 'My 8th post',
+      content:
+        'This is the x post. Testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing testing',
+      id: 7,
+      comments: [],
+    },
   ];
 
   public getPosts(): Observable<Post[]> {
@@ -51,10 +100,19 @@ export class BlogService {
   }
 
   public deletePost(id: number): Observable<boolean> {
-    this._posts = this._posts.filter((post) => {
+    let postToDelete = this._posts.find((post) => {
       return post.id !== id;
     });
-    return of(true);
+
+    if (postToDelete) {
+      const index = this._posts.indexOf(postToDelete);
+      if (index > -1) {
+        this._posts.splice(index, 1);
+        return of(true);
+      }
+    }
+
+    return of(false);
   }
 
   public createComment(postId: number, comment: Comment): Observable<boolean> {
